@@ -1,0 +1,23 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 7
+names: ['car', 'crosswalk', 'cyclist', 'light', 'person', 'sign', 'sign_danger']
+
+roboflow:
+  workspace: demo-gmvrh
+  project: infrared-light-traffic
+  version: 2
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/demo-gmvrh/infrared-light-traffic/dataset/2
+
+train: infrared-light-traffic.v2i.yolov5pytorch\train\images
+val: infrared-light-traffic.v2i.yolov5pytorch\valid\images
+test: infrared-light-traffic.v2i.yolov5pytorch\test\images
+
+nc: 4  # Number of classes
+names: ['car', 'person', 'pedestrian', 'signal']
+
+python train.py --data data.yaml --weights yolov5s.pt --img 640 --epochs 100
+
